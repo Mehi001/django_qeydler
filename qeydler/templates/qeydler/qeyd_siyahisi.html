@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <title>Qeydlərim</title>
+</head>
+<body>
+    <h1>Mənim Bütün Qeydlərim</h1>
+<p><a href="{% url 'yarat' %}">➕ Yeni Qeyd Yarat</a></p>
+<hr>
+
+    {% for qeyd in qeydler %}  <!-- Django şablon tagı; view tərəfindən göndərilən "qeydler" 
+    siyahısı/QuerySet üzərində dövrə başlayır. Hər iterasiyada cari obyekt "qeyd" olur.-->
+        <div>
+            <h2><a href="{% url 'detal' qeyd.pk %}">{{ qeyd.basliq }}</a></h2>
+            <p>{{ qeyd.mezmun|truncatechars:100 }}</p>
+            <small>Yaradıldı: {{ qeyd.yaradilma_tarixi|date:"Y-m-d H:i" }}</small>
+            <hr>
+        </div>
+    {% empty %} <!-- Əgər "qeydler" siyahısı boşdursa, bu blok işləyəcək. -->
+        <p>Hələlik heç bir qeyd yaradılmayıb.</p>
+    {% endfor %}
+
+</body>
+</html>

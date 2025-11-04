@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ qeyd.basliq }}</title>
+</head>
+<body>
+
+    <a href="{% url 'siyahisi' %}">← Bütün Qeydlərə Qayıt</a>
+
+    <h1>{{ qeyd.basliq }}</h1>
+    <p>
+        {{ qeyd.mezmun }}
+    </p>
+
+    <small>Yaradılma Tarixi: {{ qeyd.yaradilma_tarixi|date:"Y-m-d H:i" }}</small>
+    <hr>
+    <a href="#">Redaktə Et</a> | <a href="#">Sil</a>
+
+</body>
+</html>

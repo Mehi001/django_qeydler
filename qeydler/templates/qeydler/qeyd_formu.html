@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <title>Yeni Qeyd Yarat</title>
+</head>
+<body>
+    <h1>Yeni Qeyd Yarat</h1>
+
+    <form method="POST">
+        {% csrf_token %} {{ form.as_p }} <button type="submit">Qeydi Saxla</button> <!-- Formu göndərmək üçün düymə -->
+    </form>
+    <br>
+    <a href="{% url 'siyahisi' %}">← Siyahıya Geri Dön</a>
+
+</body>
+</html>
